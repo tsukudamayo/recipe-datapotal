@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: weekcook-datapotal
+
+spec:
+  containers:
+    - name: weekcook-dashboard
+      image: weekcookregistry.azurecr.io/weekcook-recipe-analyze:v0.0.1
+      ports:
+        - containerPort: 8080
+    - name: kytea-api-server
+      image: weekcookregistry.azurecr.io/kytea-api-server:v0.0.1
+      ports:
+        - containerPort: 5000

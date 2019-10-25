@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: weekcook-datapotal
+
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: weekcook-datapotal
+
+  template:
+    metadata:
+      labels:
+        app: weekcook-datapotal
+        env: stage
+    spec:
+      containers:
+        - name: weekcook-datapotal
+          image: weekcookregistry.azurecr.io/weekcook-recipe-analyze:v0.0.1
+          ports:
+            - containerPort: 8080
+        - name: kytea-api-server
+          image: weekcookregistry.azurecr.io/kytea-api-server:v0.0.1
+          ports:
+            - containerPort: 5000
