@@ -2,7 +2,7 @@ version: '3.3'
 
 services:
   weekcook-datapotal:
-    image: weekcookregistry.azurecr.io/weekcook-recipe-analyze:v0.0.1
+    image: sampleweekcookregistory.azurecr.io/weekcook-datapotal-compose:v0.0.1
     restart: always
     ports:
       - "8080:8080"

@@ -1,7 +1,7 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: ReplicaSet
 metadata:
-  name: weekcook-datapotal-deployment
+  name: weekcook-datapotal-replicaset
 spec:
   replicas: 3
   selector:
@@ -14,11 +14,11 @@ spec:
     spec:
       containers:
         - name: weekcook-dashboard
-          image: weekcookregistry.azurecr.io/weekcook-datapotal:v0.0.2
+          image: weekcookregistry.azurecr.io/weekcook-datapotal:v0.0.1
           ports:
             - containerPort: 8080
         - name: kytea-api-server
-          image: weekcookregistry.azurecr.io/kytea-api-server:v0.0.2
+          image: weekcookregistry.azurecr.io/kytea-api-server:v0.0.1
           ports:
             - containerPort: 5000
       dnsPolicy: "None"
@@ -27,7 +27,7 @@ spec:
           - 8.8.8.8
           - 8.8.4.4
         searches:
-          - weekcookdatapotal.net
+          - tsukudaexample.com
         options:
           - name: ndots
             value: "5"

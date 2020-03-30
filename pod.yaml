@@ -6,10 +6,20 @@ metadata:
 spec:
   containers:
     - name: weekcook-dashboard
-      image: weekcookregistry.azurecr.io/weekcook-recipe-analyze:v0.0.1
+      image: weekcookregistry.azurecr.io/weekcook-datapotal:v0.0.1
       ports:
         - containerPort: 8080
     - name: kytea-api-server
       image: weekcookregistry.azurecr.io/kytea-api-server:v0.0.1
       ports:
         - containerPort: 5000
+  dnsPolicy: "None"
+  dnsConfig:
+    nameservers:
+      - 8.8.8.8
+      - 8.8.4.4
+    searches:
+      - tsukudaexample.com
+    options:
+      - name: ndots
+        value: "5"

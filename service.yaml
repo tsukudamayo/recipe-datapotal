@@ -1,18 +1,17 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: weekcook-datapotal
-  labels:
-    app: weekcook-datapotal
+  name: weekcook-datapotal-service
 
 spec:
   type: LoadBalancer
+  loadBalancerIP: 23.100.108.226
   ports:
-    - name: datapotal
-      protocol: TCP
+    - name: "datapotal"
+      protocol: "TCP"
       port: 8080
-    - name: kytea
-      protocol: TCP
+    - name: "kytea"
+      protocol: "TCP"
       port: 5000
   selector:
     app: weekcook-datapotal
